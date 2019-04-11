@@ -15,12 +15,14 @@ public class ApiTest {
     String login = "defunkt";
     Response response = get(host + login);
 
+    //успешный тест
     @Test(description = "GET")
     public void testGithubGetUser() throws Exception {
         JsonNode tree = mapper.readTree(response.asString());
         Assert.assertEquals(tree.get("login").asText(), login);
     }
 
+    //падающий тест
     @Test(description = "GET")
     public void testGithubGetLocation() throws Exception {
         JsonNode tree = mapper.readTree(response.asString());
