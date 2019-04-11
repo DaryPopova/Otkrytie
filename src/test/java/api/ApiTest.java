@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
 import org.testng.Assert;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.get;
@@ -15,10 +14,6 @@ public class ApiTest {
     ObjectMapper mapper = new ObjectMapper();
     String login = "defunkt";
     Response response = get(host + login);
-
-    @BeforeSuite
-    public void doRequest() throws Exception {
-    }
 
     @Test(description = "GET")
     public void testGithubGetUser() throws Exception {
